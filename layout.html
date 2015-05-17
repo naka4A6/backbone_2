@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>backbone.jsの超簡単サンプル</title>
+	</head>
+	<body>
+		<!-- view表示用タグを埋め込む -->
+		<div id="about"></div>
+		
+		<!-- ここは外部ライブラリの読み込み -->
+		<script src="js/lib/jquery-2.1.4.min.js"></script>
+		<script src="js/lib/underscore-min.js"></script>
+		<script src="js/lib/backbone-min.js"></script>
+		
+		<!-- template読み込み -->
+		<script type="text/template" id="about-template">
+			<div>
+				<div>名前: <span><%= name %></span></div>
+				<div>生年月日: <span><%= birthday %></span></div>
+				<div>ポジション: <span><%= position %></span></div>
+			</div>
+		</script>
+		
+		<!-- モデル -->
+		<script src="js/MemberModel.js"></script>
+		
+		<!-- コレクション -->
+		<script src="js/TeamCollection.js"></script>
+		
+		<!-- ビュー -->
+		<script src="js/TeamAboutView.js"></script>
+
+		<script>
+			<!-- DOM読み込み完了後に実行 -->
+			$(function() {
+				// ビューを生成し、処理を開始する。
+				new app.TeamAboutView();
+			});
+		</script>
+
+	</body>
+</html>
