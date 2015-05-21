@@ -12,22 +12,11 @@ app.TeamAboutView = Backbone.View.extend ({
 		// 今は固定の値を入れる。
 		this.collection = new app.TeamCollection();
 		
-		var memberModel = new app.MemberModel();
-		// メンバ1
-		memberModel.set('name', '山田太朗');
-		memberModel.set('birthday', '1981年3月1日');
-		memberModel.set('position', 'ゴレイロ');
-		this.collection.add(memberModel);
-
-		memberModel = new app.MemberModel();
-		// メンバ2
-		memberModel.set('name', '山田次郎');
-		memberModel.set('birthday', '1981年4月1日');
-		memberModel.set('position', 'フィクソ');
-		this.collection.add(memberModel);
-
-		// 画面を描画する。
-		this.render();
+		// データを取得する。
+		this.collection.fetch();
+		
+		// データ取得後に、画面を描画する。
+		this.listenTo(this.collection, 'sync' , this.render);
 	},
 	
 	render : function() {
