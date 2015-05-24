@@ -8,8 +8,6 @@ app.TeamAboutView = Backbone.View.extend ({
 	collection : '',
 	
 	initialize : function() {
-		// 通常データはRESTでサーバサイドから取得するが、
-		// 今は固定の値を入れる。
 		this.collection = new app.TeamCollection();
 		
 		// データを取得する。
